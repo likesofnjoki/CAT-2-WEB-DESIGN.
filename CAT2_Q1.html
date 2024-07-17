@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Prompt the user to enter employee name, hours worked, and rate per hour
+    var name = prompt("Enter employee name:");
+    var hoursWorked = parseFloat(prompt("Enter hours worked:"));
+    var ratePerHour = parseFloat(prompt("Enter rate per hour:"));
+
+    // Calculate the basic pay
+    var basicPay = hoursWorked * ratePerHour;
+
+    // Calculate tax based on basic pay using if-else statements
+    var tax;
+    if (basicPay > 50000) {
+      tax = 0.2 * basicPay; // 20% tax rate
+    } else if (basicPay >= 20000 && basicPay <= 50000) {
+      tax = 0.1 * basicPay; // 10% tax rate
+    } else {
+      tax = 0; // Zero tax
+    }
+
+    // Calculate net pay
+    var netPay = basicPay - tax;
+
+    // Display the results in a table using HTML
+    document.write("<h2>Payroll Information</h2>");
+    document.write("<table>");
+    document.write("<tr><th>Employee Name</th><td>" + name + "</td></tr>");
+    document.write("<tr><th>Hours Worked</th><td>" + hoursWorked + "</td></tr>");
+    document.write("<tr><th>Rate per Hour</th><td>" + ratePerHour + "</td></tr>");
+    document.write("<tr><th>Basic Pay</th><td>" + basicPay + "</td></tr>");
+    document.write("<tr><th>Tax</th><td>" + tax + "</td></tr>");
+    document.write("<tr><th>Net Pay</th><td>" + netPay + "</td></tr>");
+    document.write("</table>");
+  </script>
+</body>
+  </html>
